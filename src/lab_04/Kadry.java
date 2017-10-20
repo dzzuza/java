@@ -3,7 +3,7 @@ package lab_04;
 import java.util.LinkedList;
 
 public class Kadry {
-    private LinkedList<Pracownik> lista=new LinkedList<>();
+    protected LinkedList<Pracownik> lista=new LinkedList<>();
 
     void addP(Pracownik pracownik){
         lista.add(pracownik);

@@ -16,17 +16,20 @@ public class PracaMain {
         kadry.addP(new PracownikEtatowy("95022514260"));
         kadry.addP(new PracownikEtatowy("61022514260"));
 
+         for(Pracownik p: kadry.lista){
+            Scanner in = new Scanner(System.in);
+            double brut=in.nextDouble();
+            p.setBrutto(brut);
+        }
+        kadry.printOut();
+        System.out.println("");
         kadry.removeP("91022514260");
         kadry.changeBrutto("61022514260",6000);
         kadry.changeBrutto("95022514260",2000);
         kadry.changeBrutto("91022544265",4000);
 
         //uzupełnienie całej listy plac brutto
-        /*for(Pracownik p: kadry.lista){
-            Scanner in = new Scanner(System.in);
-            double brut=in.nextDouble();
-            p.setBrutto(brut);
-        }*/
+
 
         System.out.println(kadry.find("61022514260").getPeselFromPracownik());
         kadry.printOut();
