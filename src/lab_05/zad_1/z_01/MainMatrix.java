@@ -15,8 +15,8 @@ public class MainMatrix {
         Matrix c = new Matrix(fileName2);
         c.show();
         try {
-            System.out.println("a+c=");
-            a.add(c).show();
+            //System.out.println("a+c=");
+            //a.add(c).show();
             System.out.println("a*c=");
             a.mul(c).show();
         } catch (MatrixDimensionsException e) {
