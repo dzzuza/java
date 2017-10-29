@@ -1,6 +1,11 @@
 package lab_01.matrix;
 
+import lab_05.zad_1.z_01.MatrixDimensionsException;
+
+import java.io.*;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Matrix {
     int rows;
@@ -11,12 +16,85 @@ public class Matrix {
         rows = _m;
         columns = _n;
         matrix = new int[rows][columns];
-
     }
+
+    public Matrix(String fileName) throws IOException {
+        BufferedReader bufferedReader = null;
+        int row = 0;
+        int col = 0;
+        LinkedList<Integer> elements = new LinkedList<>();
+        try {
+        FileReader fileReader = new FileReader(fileName);
+        bufferedReader = new BufferedReader(fileReader);
+            StringTokenizer token;
+            String line;
+            //line=bufferedReader.
+            while ((line=bufferedReader.readLine()) != null) {
+                token = new StringTokenizer(line, " ");
+                row++;
+                while (token.hasMoreElements()) {
+                    elements.add(Integer.parseInt(token.nextToken()));
+                    //System.out.println(elements.getLast());
+                    col++;
+                }
+            }
+            matrix = new int[row][col / row];
+            //for(int i:elements)
+            for (int c = 0; c < row; c++) {
+                for (int d = 0; d < (col/row); d++) {
+                    //System.out.println("podaj element: ");
+                    matrix[c][d] = elements.getFirst();
+                    elements.removeFirst();
+                }
+            }
+            this.rows = row;
+            this.columns = col / row;
+            System.out.println("mac" + row + (col / row));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                bufferedReader.close();
+            }
+                catch (IOException e) {
+                e.getMessage();
+                throw e;
+            }
+    }
+    }
+/*    public Matrix(BufferedReader bufferedReader) throws IOException {
+        //BufferedReader bufferedReader = null;
+        int row = 0;
+        int col = 0;
+        LinkedList<Integer> elements = new LinkedList<>();
+        //try {
+        StringTokenizer token;
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            token = new StringTokenizer(line, " ");
+            row++;
+            while (token.hasMoreElements()) {
+                elements.add(Integer.parseInt(token.nextToken()));
+                //System.out.println(elements.getLast());
+                col++;
+            }
+        }
+        matrix = new int[row][col / row];
+        for (int c = 0; c < row; c++) {
+            for (int d = 0; d < (col / row); d++) {
+                //System.out.println(c+" "+" "+d+" "+" "+elements.get(i));
+                matrix[c][d] = elements.getFirst();
+                elements.removeFirst();
+            }
+        }
+        this.rows = row;
+        this.columns = col / row;
+        //System.out.println("mac" + row + (col / row));
+    }*/
 
     public Matrix fill() {
         Scanner in = new Scanner(System.in);
-        if(rows >0 && columns >0) {
+        if (rows > 0 && columns > 0) {
             for (int c = 0; c < rows; c++) {
                 for (int d = 0; d < columns; d++) {
                     //System.out.println("podaj element: ");
@@ -27,7 +105,7 @@ public class Matrix {
         return this;
     }
 
-        //wypisywanie
+    //wypisywanie
     public void show() {
         for (int c = 0; c < rows; c++) {
             for (int d = 0; d < columns; d++) {
@@ -38,7 +116,7 @@ public class Matrix {
     }
 
     //dodawanie :(
-    public Matrix add(Matrix b) {
+    public Matrix add(Matrix b) throws MatrixDimensionsException {
         Matrix result = new Matrix(this.rows, this.columns);
         if (this.rows == b.rows && this.columns == b.columns) {
             for (int c = 0; c < rows; c++) {
@@ -46,11 +124,13 @@ public class Matrix {
                     result.matrix[c][d] = this.matrix[c][d] + b.matrix[c][d];
                 }
             }
+        } else {
+            throw new MatrixDimensionsException("Wrong size");
         }
         return result;
-        }
+    }
 
-    public Matrix sub(Matrix b) {
+    public Matrix sub(Matrix b) throws MatrixDimensionsException {
         Matrix result = new Matrix(this.rows, this.columns);
         if (this.rows == b.rows && this.columns == b.columns) {
             for (int c = 0; c < rows; c++) {
@@ -58,25 +138,29 @@ public class Matrix {
                     result.matrix[c][d] = this.matrix[c][d] - b.matrix[c][d];
                 }
             }
+        } else {
+            throw new MatrixDimensionsException("Wrong size");
         }
         return result;
     }
-    public Matrix mul(Matrix b) {
+
+    public Matrix mul(Matrix b) throws MatrixDimensionsException {
         Matrix result = new Matrix(this.rows, b.columns);
         if (this.columns != b.rows) {
-            System.out.println("nie mozna wykonac dzialania");
-            return null;
-        }
+            System.out.println("tu");
+            throw new MatrixDimensionsException("Wrong");
+        } else {
             for (int c = 0; c < result.rows; c++) {
                 //System.out.println("c: "+c);
-                for (int d = 0; d < this.rows; d++) {
+                for (int d = 0; d < result.columns; d++) {
                     //System.out.println("d: "+d);
-                    for(int e = 0; e<this.columns; e++){
+                    for (int e = 0; e < this.columns; e++) {
                         //System.out.println("e: "+e);
-                        result.matrix[c][d] += this.matrix[c][e]*b.matrix[e][d];
+                        result.matrix[c][d] += this.matrix[c][e] * b.matrix[e][d];
                     }
                 }
             }
-        return result;
+            return result;
+        }
     }
 }
