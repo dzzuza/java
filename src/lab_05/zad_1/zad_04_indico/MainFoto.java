@@ -38,8 +38,13 @@ public class MainFoto {
         }
         return listOfNames;
     }
-    public static void main(String[] args) throws IOException, IndicoException {
-        Indico indico = new Indico("d110c9126ffdb0a721752ee5785a13e6");
+    public static void main(String[] args){
+        Indico indico = null;
+        try {
+            indico = new Indico("d110c9126ffdb0a721752ee5785a13e6");
+        } catch (IndicoException e) {
+            e.printStackTrace();
+        }
         String dirName = "src/lab_05/zad_1/zad_04_indico/foto";
         String[] input= filesNames(dirName);
         String[] output= getNames(dirName);
@@ -51,15 +56,31 @@ public class MainFoto {
 
 
         for (int i=0;i<input.length;i++){
-            IndicoResult single = indico.imageRecognition.predict(
-                    input[i],params
-            );
+            IndicoResult single = null;
+            try {
+                single = indico.imageRecognition.predict(
+                        input[i],params
+                );
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (IndicoException e) {
+                e.printStackTrace();
+            }
 
-            Map <String, Double> result = single.getImageRecognition();
+            Map <String, Double> result = null;
+            try {
+                result = single.getImageRecognition();
+            } catch (IndicoException e) {
+                e.printStackTrace();
+            }
             //File newDir=new File("src/lab_05/zad_1/zad_04_indico/foto_output"+ result.entrySet().iterator().next().getKey());
 
             //newDir.mkdirs();
-            FileUtils.copyFile(new File(input[i]),new File("src/lab_05/zad_1/zad_04_indico/foto_output_"+ result.entrySet().iterator().next().getKey()+"/"+output[i]));
+            try {
+                FileUtils.copyFile(new File(input[i]),new File("src/lab_05/zad_1/zad_04_indico/foto_output_"+ result.entrySet().iterator().next().getKey()+"/"+output[i]));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         //System.out.println(result);
