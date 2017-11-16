@@ -45,10 +45,7 @@ public class MainFoto {
         String[] output= getNames(dirName);
 
                 // single example
-/*
-        for(int i=0;i<input.length;i++) {
-            System.out.println("input"+input[i]);
-        }*/
+
         Map<String,Object>params=new HashMap<>();
         params.put("top_n",1);
 
@@ -59,9 +56,9 @@ public class MainFoto {
             );
 
             Map <String, Double> result = single.getImageRecognition();
-            File newDir=new File("src/lab_05/zad_1/zad_04_indico/foto_output"+ result.entrySet().iterator().next().getKey());
+            //File newDir=new File("src/lab_05/zad_1/zad_04_indico/foto_output"+ result.entrySet().iterator().next().getKey());
 
-            newDir.mkdirs();
+            //newDir.mkdirs();
             FileUtils.copyFile(new File(input[i]),new File("src/lab_05/zad_1/zad_04_indico/foto_output_"+ result.entrySet().iterator().next().getKey()+"/"+output[i]));
         }
 
