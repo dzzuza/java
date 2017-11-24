@@ -11,8 +11,8 @@ public class Circ extends Shap {
     public Circ(){
         Random random=new Random();
         this.rr=50;
-        this.xx = random.nextInt(600);
-        this.yy = random.nextInt(300);
+        this.xx = random.nextInt(700);
+        this.yy = random.nextInt(500);
     }
 
 

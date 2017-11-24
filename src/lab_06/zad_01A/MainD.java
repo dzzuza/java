@@ -9,10 +9,8 @@ import javax.swing.JFrame;
 public class MainD extends JFrame{
     public static void main(String[] args){
         JFrame window = new JFrame();
-        //MainDraw window =new MainDraw();
         Pane shapespanel=new Pane();
-        //System.out.println(shapespanel);
-        window.setSize(640,480);
+        window.setSize(800,600);
         window.setTitle("shapes drawer");
         window.setVisible(true);
 

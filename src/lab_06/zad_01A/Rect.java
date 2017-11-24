@@ -10,8 +10,8 @@ public class Rect extends Shap{
         Random random=new Random();
         this.hh = 50;
         this.ww = 50;
-        this.xx = random.nextInt(600);
-        this.yy = random.nextInt(400);
+        this.xx = random.nextInt(700);
+        this.yy = random.nextInt(500);
 }
     @Override
     public void draw(Graphics graph) {
