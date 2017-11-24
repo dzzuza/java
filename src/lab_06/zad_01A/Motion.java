@@ -4,7 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Motion extends MouseAdapter{
-    String oo = "Nothing";
+    //String oo = "Nothing";
     int mx;
     int my;
 
@@ -12,7 +12,7 @@ public class Motion extends MouseAdapter{
     public void mouseClicked(MouseEvent e) {
         //mx = e.getX();
         //my = e.getY();
-        oo = "click";
+        //oo = "click";
     }
 
     @Override
@@ -29,7 +29,7 @@ public class Motion extends MouseAdapter{
         //my = e.getY();
         ((Shap) e.getComponent()).setXx(e.getComponent().getX() + e.getX() - mx);
         ((Shap) e.getComponent()).setYy(e.getComponent().getY() + e.getY() - my);
-        oo = "released";
+        //oo = "released";
         e.getComponent().repaint();
     }
 
@@ -39,7 +39,7 @@ public class Motion extends MouseAdapter{
         //my = e.getY();
         ((Shap) e.getComponent()).setXx(e.getComponent().getX() + e.getX() - mx);
         ((Shap) e.getComponent()).setYy(e.getComponent().getY() + e.getY() - my);
-        oo = "dragged";
+        //oo = "dragged";
         e.getComponent().repaint();
     }
 
@@ -47,6 +47,6 @@ public class Motion extends MouseAdapter{
     public void mouseMoved(MouseEvent e) {
         //mx=e.getX();
         //my=e.getY();
-        oo = "moved";
+        //oo = "moved";
     }
 }
