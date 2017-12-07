@@ -2,6 +2,18 @@ package lab_01.pesel;
 
 public class Pesel {
     String pesel;
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getPesel(){
+        return pesel;
+    }
+        public Pesel(String pes){
+            this.pesel=pes;
+        }
+
     public boolean check(){
         if(pesel.length()!=11){
             return false;

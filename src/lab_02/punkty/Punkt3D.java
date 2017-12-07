@@ -26,7 +26,7 @@ public class Punkt3D extends Punkt2d {
 
     public void fill() {
         Scanner in = new Scanner(System.in);
-        double x, y, z;;
+        //double x, y, z;;
         if(!filled) {
             System.out.println("wczytaj punkt, podaj x: ");
             this.setX(in.nextDouble());

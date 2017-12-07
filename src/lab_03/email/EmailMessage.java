@@ -17,7 +17,6 @@ public class EmailMessage {
     private LinkedList<String> bcc; // optional
 
     //Przykładowy konstruktor (można założyć, że pola opcjonalne mogą być null)
-
     public EmailMessage(Builder builder) {
         this.from=builder.from;
         this.to=builder.to;
@@ -27,7 +26,6 @@ public class EmailMessage {
         this.cc=builder.cc;
         this.bcc=builder.bcc;
     }
-
     @Override
     public String toString() {
         return "EmailMessage{" +
@@ -40,7 +38,6 @@ public class EmailMessage {
                 ", bcc=" + bcc +
                 '}';
     }
-
     public static Builder builder(){
         return new EmailMessage.Builder();
     }

@@ -15,10 +15,13 @@ public class ShapeList {
         //LinkedList<Shape> shapelist = new LinkedList<>();
         //shapelist.add(kolo1);
 
-        Shape[] shapel = {new Circle(), new Circle(), new Rectangular(), new Rectangular()};
+        //Shape[] shapel = {new Circle(), new Circle(), new Rectangular(), new Rectangular()};
 
-        for (Shape p : shapel) {
-            //for (lab_02.punkty.Punkt3D p : punkty) {
+        LinkedList<Shape> shape1=new LinkedList<>();
+        shape1.add(kolo1);
+        shape1.add(kolo2);
+        shape1.add(prost1);
+        for (Shape p : shape1) {
             p.draw();
         }
 

@@ -1,6 +1,6 @@
 package lab_01.matrix;
 
-import lab_05.zad_1.z_01.MatrixDimensionsException;
+import lab_05.zad_01.MatrixDimensionsException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

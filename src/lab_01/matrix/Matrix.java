@@ -1,6 +1,6 @@
 package lab_01.matrix;
 
-import lab_05.zad_1.z_01.MatrixDimensionsException;
+import lab_05.zad_01.MatrixDimensionsException;
 
 import java.io.*;
 import java.util.LinkedList;
@@ -49,7 +49,7 @@ public class Matrix {
             }
             this.rows = row;
             this.columns = col / row;
-            System.out.println("mac" + row + (col / row));
+            //System.out.println("mac" + row + (col / row));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -62,35 +62,6 @@ public class Matrix {
             }
     }
     }
-/*    public Matrix(BufferedReader bufferedReader) throws IOException {
-        //BufferedReader bufferedReader = null;
-        int row = 0;
-        int col = 0;
-        LinkedList<Integer> elements = new LinkedList<>();
-        //try {
-        StringTokenizer token;
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-            token = new StringTokenizer(line, " ");
-            row++;
-            while (token.hasMoreElements()) {
-                elements.add(Integer.parseInt(token.nextToken()));
-                //System.out.println(elements.getLast());
-                col++;
-            }
-        }
-        matrix = new int[row][col / row];
-        for (int c = 0; c < row; c++) {
-            for (int d = 0; d < (col / row); d++) {
-                //System.out.println(c+" "+" "+d+" "+" "+elements.get(i));
-                matrix[c][d] = elements.getFirst();
-                elements.removeFirst();
-            }
-        }
-        this.rows = row;
-        this.columns = col / row;
-        //System.out.println("mac" + row + (col / row));
-    }*/
 
     public Matrix fill() {
         Scanner in = new Scanner(System.in);
