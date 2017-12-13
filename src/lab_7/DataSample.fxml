@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="lab_7.DataController">
+
+<Label text="I love bacon"/>
+<Button text="Submit"/>
+
+</VBox>-->
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab_7.DataController">
+   <children>
+      <VBox fillWidth="false" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="inputText" prefHeight="40.0" prefWidth="500.0">
+               <VBox.margin>
+                  <Insets left="50.0" top="50.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox alignment="CENTER" prefHeight="93.0" prefWidth="609.0" spacing="50.0">
+               <children>
+                  <Button fx:id="browseButton" lineSpacing="100.0" mnemonicParsing="false" onAction="#browseISBN" text="isbn">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="browseButton2" layoutX="60.0" layoutY="60.0" mnemonicParsing="false" onAction="#browseAuthor" text="autor">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="showButton" layoutX="239.0" layoutY="60.0" mnemonicParsing="false" onAction="#show" text="wszystko">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="addButton" layoutX="373.0" layoutY="66.0" mnemonicParsing="false" onAction="#add" text="dodaj">
+                     <HBox.margin>
+                        <Insets top="50.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <ListView fx:id="list" prefHeight="200.0" prefWidth="610.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="50.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </ListView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+</AnchorPane>
