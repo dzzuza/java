@@ -32,7 +32,6 @@ public class DataBase {
             e.printStackTrace();
         }
     }
-
     public ArrayList<String> listNames() {
         ArrayList<String> list=new ArrayList<String>();
         String isbn;
