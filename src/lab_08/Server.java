@@ -36,29 +36,15 @@ public class Server {
         files.put("ccc", "zawartość ccc");
 
         Boolean logged = false;
-/*try {
-                serverSocket = new ServerSocket(3001);
 
-                Socket socket = serverSocket.accept();//Client socket
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String message =bufferedReader.readLine();
-                System.out.println("messag received from Client"+message);
-                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(),true);
-                printWriter.println("Server echoing back"+message);
-            } catch (IOException e) {
-                System.out.println("Could not listen on port: 3001"+e);
-                System.exit(-1);
-            }*/
+        ServerSocket serverSocket = null;
 
-
-            ServerSocket serverSocket = null;
-
-            try {
-                serverSocket = new ServerSocket(3000);
-            } catch (IOException e) {
-                System.out.println("Could not listen on port: 3000");
-                System.exit(-1);
-            }
+        try {
+            serverSocket = new ServerSocket(3000);
+        } catch (IOException e) {
+            System.out.println("Could not listen on port: 3000");
+            System.exit(-1);
+        }
 
         while (true) {
             Socket clientSocket = null;
@@ -120,13 +106,13 @@ public class Server {
                 int number = Integer.parseInt(inputLine.split(" ")[2]);
                 if (idInput.equals("1234567890")) {
                     filenames = (users.get(idInput));
-                        out.println(files.get(filenames.get(number)));
-                        System.out.println(files.get(filenames.get(number)));
-                    }
+                    out.println(files.get(filenames.get(number)));
+                    System.out.println(files.get(filenames.get(number)));
                 }
             }
         }
     }
+}
 
 
 /*                        Pattern pattern = Pattern.compile("(LOGIN|LOGOUT) ([^ ]+)([;]+)([^ ]+)?");

@@ -14,9 +14,7 @@ public class Client {
     private BufferedReader in;
     private String ID;
     String state;
-/*    public Client(){
 
-    }*/
     public void connect() {
 
         try {
@@ -25,10 +23,7 @@ public class Client {
             in = new BufferedReader(new InputStreamReader(
                     echoSocket.getInputStream()));
             System.out.println("connected");
-            /*while(true){
-              String readerInput = bufferedReader.readLine();
-              printWriter.printl(readerInput);
-            }*/
+
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host: localhost.");
             System.exit(1);
