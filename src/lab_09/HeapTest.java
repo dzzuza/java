@@ -1,9 +1,5 @@
 package lab_09;
 
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -47,18 +43,18 @@ public class HeapTest {
     }
 
     @Test
-    public void instert4elements(){
-        Heap heap =new Heap();
+    public void instert4elements() {
+        Heap heap = new Heap();
         heap.insert(1);
         heap.insert(2);
         heap.insert(0);
         heap.insert(5);
-        assertEquals("size should be 4",4,heap.size());
+        assertEquals("size should be 4", 4, heap.size());
     }
 
     @Test
     public void extractMaxTest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
         heap.insert(2);
         heap.insert(20);
@@ -67,9 +63,10 @@ public class HeapTest {
         assertEquals("size should be 2", 2, heap.size());
 
     }
+
     @Test
     public void heapifyTest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
         heap.insert(2);
         heap.insert(20);
@@ -83,7 +80,7 @@ public class HeapTest {
 
     @Test
     public void deleteMaxTest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
         heap.insert(2);
         heap.insert(20);
@@ -93,36 +90,39 @@ public class HeapTest {
         assertEquals(13, heap.top(), 0.001);
         assertEquals("size should be 3", 3, heap.size());
     }
+
     @Test
     public void replacetest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
         heap.insert(2);
         heap.replace();
 
         assertEquals(10, heap.top(), 0.001);
     }
+
     @Test
     public void mergetest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
-        heap.insert(2);
-        Heap heap2=new Heap();
+        heap.insert(22);
+        Heap heap2 = new Heap();
+        heap2.insert(12);
         heap2.insert(20);
-        heap2.insert(13);
-        //heap.merge();
 
-        assertEquals(4, heap.size(), 0.001);
+        assertEquals(4, heap.merge(heap2).size(), 0.001);
+        assertEquals(22, heap.merge(heap2).top(), 0.001);
     }
+
     @Test
     public void meldtest() {
-        Heap  heap = new Heap();
+        Heap heap = new Heap();
         heap.insert(1);
-        heap.insert(2);
-        Heap heap2=new Heap();
-        heap2.insert(20);
-        heap2.insert(13);
-        //heap.merge();
+        heap.insert(20);
+        Heap heap2 = new Heap();
+        heap2.insert(10);
+        heap2.insert(2);
+        heap.meld(heap2);
 
         assertEquals(4, heap.size(), 0.001);
         assertEquals(20, heap.top(), 0.001);

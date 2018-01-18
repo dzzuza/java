@@ -2,8 +2,6 @@ package lab_09;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
 import static java.util.Collections.swap;
 
 public class Heap {
@@ -56,13 +54,16 @@ public class Heap {
         tab.set(0, tab.get(tab.size() - 1));
         tab.remove(tab.size() - 1);
         heapSize--;
-        //heapify(0);
+        heapify(0);
         return max;
     }
 
 
     public void deleteMax() {
+        double tmp;
+        tmp=tab.get(0);
         tab.set(0, tab.get(tab.size() - 1));
+        tab.set(tab.size() - 1,tmp);
         tab.remove(heapSize - 1);
         heapSize--;
         heapify(0);
@@ -90,6 +91,26 @@ public class Heap {
             tab.set(max, tmp);
             heapify(max);
         }
+    }
+
+    public void meld(Heap heap2){
+        heapSize+=heap2.heapSize;
+        this.tab.addAll(heap2.tab);
+        heapify(0);
+    }
+
+    public Heap merge(Heap heap2){
+        Heap heapout = new Heap();
+        heapout.heapSize=this.heapSize+ heap2.heapSize;
+        if(this.top()>heap2.top()){
+            heapout.tab.addAll(this.tab);
+            heapout.tab.addAll(heap2.tab);
+        }
+        else {
+            heapout.tab.addAll(heap2.tab);
+            heapout.tab.addAll(this.tab);
+        }
+        return heapout;
     }
 
 
